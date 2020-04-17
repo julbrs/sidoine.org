@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                collection
               }
               frontmatter {
                 title
@@ -34,9 +35,33 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  const blogPosts = posts.filter(
+        edge => edge.node.fields.collection === `blog`
+  );
+
+  const privateBlogPosts = posts.filter(
+        edge => edge.node.fields.collection === `private-blog`
+  );
+
+
+  blogPosts.forEach((post, index) => {
+    const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node
+    const next = index === 0 ? null : blogPosts[index - 1].node
+
+    createPage({
+      path: post.node.fields.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
+    })
+  })
+
+  privateBlogPosts.forEach((post, index) => {
+    const previous = index === privateBlogPosts.length - 1 ? null : privateBlogPosts[index + 1].node
+    const next = index === 0 ? null : privateBlogPosts[index - 1].node
 
     createPage({
       path: post.node.fields.slug,
@@ -55,10 +80,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+
+    // get parent node, it's the collection ! (blog private-blog ...)
+    const parent = getNode(node.parent)
+
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `/${parent.sourceInstanceName}${value}`,
+    })
+
+    createNodeField({
+      name: `collection`,
+      node,
+      value: parent.sourceInstanceName,
     })
   }
 }

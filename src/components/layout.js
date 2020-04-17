@@ -3,12 +3,17 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+const styles = {
+  navbar: {
+    listStyleType: `none`,
+    marginBottom: rhythm(1),
+    padding: 0,
+  }
+}
 
-  if (location.pathname === rootPath) {
-    header = (
+const Layout = ({ location, title, children }) => {
+  let header = (
+    <header>
       <h1
         style={{
           ...scale(1.5),
@@ -26,42 +31,28 @@ const Layout = ({ location, title, children }) => {
           {title}
         </Link>
       </h1>
+      <ul style={styles.navbar}>
+        <li style={{display: `inline`, marginLeft: rhythm(1)}}><Link to={`/`}>Home</Link></li>
+        <li style={{display: `inline`, marginLeft: rhythm(1)}}><Link to={`/blog`}>Blog</Link></li>
+      </ul>
+    </header>
     )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+
   return (
     <div
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        maxWidth: rhythm(36 ),
+        padding: `${rhythm(1)} ${rhythm(0.5)}`,
       }}
     >
-      <header>{header}</header>
+      {header}
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a href="https://www.gatsbyjs.org"><span role="img" aria-label="love">❤️</span></a>
       </footer>
     </div>
   )
