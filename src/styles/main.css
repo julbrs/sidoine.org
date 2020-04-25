@@ -1,0 +1,11 @@
+.outdoor-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.outdoor-item {
+    width: 400px;
+    height: 400px;
+}
+

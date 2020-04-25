@@ -4,7 +4,7 @@ import {  graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/post"
-import { rhythm } from "../utils/typography"
+import "../styles/main.css"
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -14,25 +14,23 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <h1 style={{
-        marginTop: rhythm(2),
-      }}
-      >Last nerds stuff</h1>
+      <h1>Last outdoor things</h1>
+      <div className="outdoor-container">
+      {outdoor.map(({ node }) => {
+        return (
+          <Post node={node}/>
+        )
+      })}
+      </div>
+
+      <h1>Last nerds stuff</h1>
       {nerd.map(({ node }) => {
         return (
           <Post node={node}/>
         )
       })}
 
-      <h1 style={{
-        marginTop: rhythm(2),
-      }}
-      >Last outdoor things</h1>
-      {outdoor.map(({ node }) => {
-        return (
-          <Post node={node}/>
-        )
-      })}
+      
     </Layout>
   )
 }
@@ -62,7 +60,7 @@ query IndexQuery {
           description
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 800, maxHeight: 250) {
+              fluid(maxWidth: 350, maxHeight: 250) {
                 ...GatsbyImageSharpFluid
               }
             }

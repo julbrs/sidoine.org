@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import defaultImg from "../../content/assets/gatsby-icon.png"
 
-import { rhythm } from "../utils/typography"
+import "../styles/main.css"
 
 const Post = ({ node }) => {
   let featuredImgFluid = defaultImg
@@ -12,19 +12,19 @@ const Post = ({ node }) => {
   }
   const title = node.frontmatter.title || node.fields.slug
   return (
-    <article key={node.fields.slug}>
-
+    <article key={node.fields.slug} className="outdoor-item">
       <header>
-        <h3 style={{
-            marginBottom: rhythm(1 / 4),
-          }}>
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+      <Link to={node.fields.slug}>
+        <Img fluid={featuredImgFluid} />
+        <h3>
+          
             {title}
-          </Link>
+          
         </h3>
+        </Link>
         <small>{node.frontmatter.date}</small>
       </header>
-      <Img fluid={featuredImgFluid} />
+      
       <section>
         <p
           dangerouslySetInnerHTML={{
