@@ -8,10 +8,13 @@ module.exports = {
     description: `A blog.`,
     siteUrl: 'https://sidoine.org',
     social: {
-      twitter: `sidoineorg`,
+      twitter: `https://twitter/@sidoineorg`,
+      linkedin: `https://www.linkedin.com/in/julienbras/`,
+      github: `https://github.com/bobman38`,
     },
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -22,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/private-blog`,
-        name: `private-blog`,
+        path: `${__dirname}/content/private`,
+        name: `private`,
       },
     },
     {
@@ -78,16 +81,10 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [
-          { userAgent: '*', disallow: '/private-blog/' },
+          { userAgent: '*', disallow: '/private/' },
           { userAgent: '*', allow: '/' },
         ]
       }

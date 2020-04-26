@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   );
 
   const privateBlogPosts = posts.filter(
-        edge => edge.node.fields.collection === `private-blog`
+        edge => edge.node.fields.collection === `private`
   );
 
 
@@ -81,7 +81,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
 
-    // get parent node, it's the collection ! (blog private-blog ...)
+    // get parent node, it's the collection ! (blog private ...)
     const parent = getNode(node.parent)
 
     createNodeField({
