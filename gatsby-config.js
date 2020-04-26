@@ -8,7 +8,7 @@ module.exports = {
     description: `A blog.`,
     siteUrl: 'https://sidoine.org',
     social: {
-      twitter: `https://twitter/@sidoineorg`,
+      twitter: `https://twitter.com/@sidoineorg`,
       linkedin: `https://www.linkedin.com/in/julienbras/`,
       github: `https://github.com/bobman38`,
     },
