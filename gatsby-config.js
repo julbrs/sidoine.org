@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `My personal space and projects`,
+    title: `Sidoine.org`,
     author: {
       name: `Julien Bras`,
       summary: `who write about things. He lives actually in Montreal, QC. `,

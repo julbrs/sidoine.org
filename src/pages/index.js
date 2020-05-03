@@ -15,7 +15,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Index" />
       <Title 
         title="Projects"
         description="Actives open-source projects"
