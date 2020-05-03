@@ -5,6 +5,9 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Cards from "../components/Cards"
 import Title from "../components/Title"
+import ProjectListing from "../components/ProjectListing"
+
+import projects from "../../data/projects"
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -13,6 +16,12 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
+      <Title 
+        title="Projects"
+        description="Actives open-source projects"
+      />
+      <ProjectListing projects={projects} />
+      
       <Title 
         title="Outdoor"
         description="Des articles sur de belles sorties dont je veux garder une trace"
