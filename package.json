@@ -27,15 +27,14 @@
     "typeface-merriweather": "^0.0.72"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@netlify/plugin-gatsby": "^2.0.0-beta"
   },
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
