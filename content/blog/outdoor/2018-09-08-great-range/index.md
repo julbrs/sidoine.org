@@ -47,7 +47,7 @@ A partir des sommets Wolfjaw, les sentiers sont parfois complexes. Quelques pas 
 
 Après Basin on peut faire le plein d'eau dans la rivière. Filtre indispensable car on est pas sûr de la qualité de l'eau. On repart avec bien 2 litres chacun. Il ne reste ensuite que deux sommets mais les plus gros ! Big Haystack se fait assez bien avec un super pano en haut.
 
-![](./greatrange2.jpg){:class="img-max"}
+![](./greatrange2.jpg)
 Au sommet de Big Haystack
 
 La montée vers Mont Marcy est la plus longue (une heure je crois) mais c'est là on a le plus de D+ et de distance pour un sommet. On est au sommet de l'état de NY vers 16h30. On a mis plus de 7h30 pour venir jusqu'à ce point !

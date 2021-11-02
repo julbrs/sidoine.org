@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Seo from "../components/Seo"
 import Title from "../components/Title"
 
 import "../styles/markdown.css"
@@ -14,19 +14,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.excerpt}
-      />
-      <Title 
+      <Seo title={post.frontmatter.title} description={post.excerpt} />
+      <Title
         title={post.frontmatter.title}
         description={post.frontmatter.date}
         main={true}
       />
       <article className="container">
-        <section 
+        <section
           className="markdown lg:px-24"
-          dangerouslySetInnerHTML={{ __html: post.html }} />
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </article>
 
       <nav>

@@ -1,27 +1,24 @@
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 // import PropTypes from "prop-types"
 import React from "react"
 
 const Card = props => {
-    const {
-        excerpt,
-        fields: {
-            slug
-        },
-        frontmatter: {
-            date,
-            featuredImage,
-            title
-        }
-    } = props
+  const {
+    excerpt,
+    fields: { slug },
+    frontmatter: { date, featuredImage, title },
+  } = props
 
   return (
     <div className="bg-white h-full shadow-md rounded-md overflow-hidden hover:bg-blue-100">
       <Link to={slug}>
         <div className="bg-blue-300">
-          <Img fluid={featuredImage.childImageSharp.fluid} alt={title} />
+          <GatsbyImage
+            image={featuredImage.childImageSharp.gatsbyImageData}
+            alt={title}
+          />
         </div>
         <div className="p-5 pb-1">
           <h2 className="text-2xl text-blue-500 font-bold leading-snug">
@@ -36,13 +33,11 @@ const Card = props => {
 }
 
 export const query = graphql`
-fragment CardImageFragment on File {
+  fragment CardImageFragment on File {
     childImageSharp {
-        fluid(maxWidth: 640, maxHeight: 420, cropFocus: NORTH) {
-            ...GatsbyImageSharpFluid_withWebp
-        }
+      gatsbyImageData(width: 640, height: 420)
     }
-}
+  }
 `
 
 export default Card

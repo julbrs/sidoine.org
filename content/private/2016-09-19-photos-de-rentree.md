@@ -19,7 +19,7 @@ Coté lits
 
 Coté jeu
 
-Et ce matin grande rentrée pour tout le monde ! Eliott à l'école, en 1ère année<figure id="attachment_67" style="width: 660px" class="wp-caption alignnone">
+Et ce matin grande rentrée pour tout le monde ! Eliott à l'école, en 1ère année
 
 ![](/media/2016/wp-1474299410153.jpeg)
 
@@ -29,7 +29,7 @@ La grande école d'Eliott rue Cartier
 
 Eliott prêt à rentrer avec son sac à lunch à la main!
 
-Et Sidonie va en face, dans la garderie du monde à l'ange Papineau/Rosemont.<figure id="attachment_70" style="width: 660px" class="wp-caption alignnone">
+Et Sidonie va en face, dans la garderie du monde à l'ange Papineau/Rosemont.
 
 ![](/media/2016/wp-1474299423058.jpeg)
 

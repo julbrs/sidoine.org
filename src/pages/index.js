@@ -1,8 +1,8 @@
 import React from "react"
-import {  graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Seo from "../components/Seo"
 import Cards from "../components/Cards"
 import Title from "../components/Title"
 import ProjectListing from "../components/ProjectListing"
@@ -16,21 +16,18 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Index" />
-      <Title 
-        title="Articles"
-        description="Content published on dev.to"
-      />
+      <Seo title="Index" />
+      <Title title="Articles" description="Content published on dev.to" />
       <div className="container">
         {devto.map((item, i) => (
-            <article key={item.article.id}>
+          <article key={item.article.id}>
             <header>
               <h3 className="text-2xl text-blue-500 font-bold leading-snug">
-                <a href={item.article.url}>
-                  {item.article.title}
-                </a>
+                <a href={item.article.url}>{item.article.title}</a>
               </h3>
-              <p className="text-sm text-blue-900 font-thin">{item.article.published_at}</p>
+              <p className="text-sm text-blue-900 font-thin">
+                {item.article.published_at}
+              </p>
             </header>
             <section>
               <p className="text-base text-blue-900 mb-5 font-medium">
@@ -42,14 +39,10 @@ const Index = ({ data, location }) => {
         ))}
       </div>
 
-
-      <Title 
-        title="Projects"
-        description="Active projects"
-      />
+      <Title title="Projects" description="Active projects" />
       <ProjectListing projects={projects} />
-      
-      <Title 
+
+      <Title
         title="Outdoor"
         description="Des articles sur de belles sorties dont je veux garder une trace"
         link="blog"
@@ -62,44 +55,47 @@ const Index = ({ data, location }) => {
 export default Index
 
 export const pageQuery = graphql`
-query IndexQuery {
-  site {
-    siteMetadata {
-      title
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
     }
-  }
-  outdoor: allMarkdownRemark(
-      sort: {fields: [frontmatter___date], order: DESC},
-      limit: 5,
-      filter: {frontmatter: {}, fileAbsolutePath: {regex: "/(outdoor)/"}}) {
-    edges {
-      node {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          featuredImage {
-            ...CardImageFragment
+    outdoor: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+      filter: { frontmatter: {}, fileAbsolutePath: { regex: "/(outdoor)/" } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            featuredImage {
+              ...CardImageFragment
+            }
           }
         }
       }
     }
-  }
-  devto: allDevArticles(sort: {fields: article___published_at, order: DESC}, limit: 10) {
-    nodes {
-      article {
-        id
-        title
-        url
-        published_at(formatString: "MMMM DD, YYYY")
-        description
+    devto: allDevArticles(
+      sort: { fields: article___published_at, order: DESC }
+      limit: 10
+    ) {
+      nodes {
+        article {
+          id
+          title
+          url
+          published_at(formatString: "MMMM DD, YYYY")
+          description
+        }
       }
     }
   }
-
-}
 `

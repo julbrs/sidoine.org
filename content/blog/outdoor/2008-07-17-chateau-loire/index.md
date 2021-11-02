@@ -82,7 +82,7 @@ secoué les tentes. Bonne nouvelle : ma copine la tique est partie !
 Début de journée un peu chaud. Dans une discussion, on s’est planté de
 route sur un embranchement, et on se retrouve sur le champ d’un
 agriculteur pas super aimable, mais qui nous redirige quand même… Les
-chemins de la carte <span class="\"caps\"">IGN</span> sont pas hyper
+chemins de la carte `IGN` sont pas hyper
 actualisés, y’en a un qui a disparu ! Faut croire que les champs se
 déplacent ;).
 
